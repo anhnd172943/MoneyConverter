@@ -77,10 +77,13 @@ public class MainActivity extends AppCompatActivity {
         fromSpinner.setAdapter(arrayAdapter);
         toSpinner.setAdapter(arrayAdapter2);
 
-        fromSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+       /* fromSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (currency.get(position).toString().equals("VND")){
+
+                String string = currency.get(position).toString();
+
+                if (string.equals("VND")){
                     res = Double.parseDouble(getMoney.getText().toString())/medtoVND;
                 }
                 if (currency.get(position).toString().equals("USD")){
@@ -116,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
 
         /*toSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -168,8 +171,73 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+                String text = fromSpinner.getSelectedItem().toString();
+                String text2 = toSpinner.getSelectedItem().toString();
 
-                result.setText("" + res);
+                if (text.equals("VND")){
+                    res = Double.parseDouble(getMoney.getText().toString())/medtoVND;
+                }
+                if (text.equals("USD")){
+                    res = Double.parseDouble(getMoney.getText().toString())/medtoUSD;
+                }
+                if (text.equals("EUR")){
+                    res = Double.parseDouble(getMoney.getText().toString())/medtoEUR;
+                }
+                if (text.equals("GBP")){
+                    res = Double.parseDouble(getMoney.getText().toString())/medtoGBP;
+                }
+                if (text.equals("JPY")){
+                    res = Double.parseDouble(getMoney.getText().toString())/medtoJPY;
+                }
+                if (text.equals("CNY")){
+                    res = Double.parseDouble(getMoney.getText().toString())/medtoCNY;
+                }
+                if (text.equals("RUB")){
+                    res = Double.parseDouble(getMoney.getText().toString())/medtoRUB;
+                }
+                if (text.equals("HKD")){
+                    res = Double.parseDouble(getMoney.getText().toString())/medtoHKD;
+                }
+                if (text.equals("CAD")){
+                    res = Double.parseDouble(getMoney.getText().toString())/medtoCAD;
+                }
+                if (text.equals("THB")){
+                    res = Double.parseDouble(getMoney.getText().toString())/medtoTHB;
+                }
+
+                if (text2.equals("VND")){
+                    res *= medtoVND;
+                }
+                if(text2.equals("USD")){
+                    res *= medtoUSD;
+                }
+                if(text2.equals("EUR")){
+                    res *= medtoEUR;
+                }
+                if(text2.equals("GBP")){
+                    res *= medtoGBP;
+                }
+                if(text2.equals("JPY")){
+                    res *= medtoJPY;
+                }
+                if(text2.equals("CNY")){
+                    res *= medtoCNY;
+                }
+                if(text2.equals("RUB")){
+                    res *= medtoRUB;
+                }
+                if(text2.equals("CAD")){
+                    res *= medtoCAD;
+                }
+                if(text2.equals("HKD")){
+                    res *= medtoHKD;
+                }
+                if(text2.equals("THB")){
+                    res *= medtoTHB;
+                }
+
+
+                result.setText(String.format("" + res));
             }
 
             @Override
